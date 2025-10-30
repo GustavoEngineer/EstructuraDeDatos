@@ -24,7 +24,7 @@ namespace PracticaU2_Estructuras.Services
                 Console.Clear();
                 Console.WriteLine("--- Menú Ejercicios de Colas ---");
                 Console.WriteLine("1. Ejercicio 1: Ventanilla del Banco (ColasService)");
-                Console.WriteLine("2. Ejercicio 2 de Colas (Pendiente)");
+                Console.WriteLine("2. Pintar Coches Game");
                 Console.WriteLine("3. Ejercicio 3: Estacionamiento Callejón (EstacionamientoApp)");
                 Console.WriteLine("0. Volver al Menú Principal");
                 Console.Write("Selecciona una opción: ");
@@ -34,7 +34,7 @@ namespace PracticaU2_Estructuras.Services
                     switch (opcion)
                     {
                         case 1: EjecutarEjercicio1Colas(); break;
-                        case 2: Console.WriteLine("Funcionalidad de Cola - Ejercicio 2 no implementada aún."); break;
+                        case 2: LanzarPintarCochesGame(); break;
                         case 3: LanzarEstacionamientoApp(); break;
                         case 0: volverAPrincipal = true; break;
                         default: Console.WriteLine("Opción no válida."); break;
@@ -129,6 +129,36 @@ namespace PracticaU2_Estructuras.Services
                     Console.WriteLine("\nPresiona cualquier tecla para continuar...");
                     Console.ReadKey();
                 }
+            }
+        }
+
+        private static void LanzarPintarCochesGame()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Pintar Coches Game ---");
+            Console.WriteLine("Lanzando el juego Pintar Coches...");
+
+            try
+            {
+                // Ruta relativa al ejecutable de PintarCochesGame
+                string gamePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "PintarCochesGame", "bin", "Debug", "net9.0-windows", "PintarCochesGame.exe");
+
+                // Asegurarse de que el archivo existe
+                if (File.Exists(gamePath))
+                {
+                    Process process = Process.Start(gamePath)!;
+                    process.WaitForExit(); // Esperar a que la aplicación lanzada termine
+                    Console.WriteLine("Pintar Coches Game finalizado. Presiona una tecla para volver al menú de Colas.");
+                }
+                else
+                {
+                    Console.WriteLine($"Error: No se encontró el ejecutable en la ruta: {gamePath}");
+                    Console.WriteLine("Asegúrate de que PintarCochesGame haya sido compilado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al lanzar Pintar Coches Game: {ex.Message}");
             }
         }
 

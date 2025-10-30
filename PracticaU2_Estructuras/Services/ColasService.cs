@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using PracticaU2_Estructuras.Services;
 
 namespace Services
 {
@@ -68,57 +69,7 @@ namespace Services
         /// </summary>
         public static void EjecutarMenu()
         {
-            bool continuar = true;
-            while (continuar)
-            {
-                MostrarMenuColas();
-                
-                if (int.TryParse(Console.ReadLine(), out int opcion))
-                {
-                    Console.WriteLine("\n----------------------------------------");
-                    switch (opcion)
-                    {
-                        case 1:
-                            EjercicioVentanillaBanco();
-                            break;
-                        case 2:
-                            EjercicioColaPrioridad();
-                            break;
-                        case 3:
-                            EjercicioColaCircular();
-                            break;
-                        case 0:
-                            Console.WriteLine("Volviendo al Menú Principal...");
-                            continuar = false;
-                            break;
-                        default:
-                            Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
-                            break;
-                    }
-                    Console.WriteLine("----------------------------------------\n");
-                }
-                else
-                {
-                    Console.WriteLine("\nError: Por favor, introduce solo un número para seleccionar la opción.");
-                }
-
-                if (continuar)
-                {
-                    Console.WriteLine("Presiona cualquier tecla para continuar...");
-                    Console.ReadKey();
-                }
-            }
-        }
-
-        private static void MostrarMenuColas()
-        {
-            Console.Clear();
-            Console.WriteLine("--- Menú Ejercicios de Colas ---");
-            Console.WriteLine("1. Ventanilla del Banco");
-            Console.WriteLine("2. Cola con Prioridad");
-            Console.WriteLine("3. Cola Circular");
-            Console.WriteLine("0. Volver al Menú Principal");
-            Console.Write("Selecciona una opción: ");
+            PracticaU2_Estructuras.Services.ColasMenuService.EjecutarMenu();
         }
 
         private static void EjercicioVentanillaBanco()
