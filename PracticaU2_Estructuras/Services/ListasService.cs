@@ -410,12 +410,14 @@ namespace PracticaU2_Estructuras.Services
             private List<int> numerosOriginales;
             private List<int> numerosPares;
             private List<int> numerosImpares;
+            private Random random;
 
             public NumerosParesImpares()
             {
                 numerosOriginales = new List<int>();
                 numerosPares = new List<int>();
                 numerosImpares = new List<int>();
+                random = new Random();
             }
 
             public void GenerarNumeros()
@@ -424,36 +426,32 @@ namespace PracticaU2_Estructuras.Services
                 numerosPares.Clear();
                 numerosImpares.Clear();
 
-                Console.Write("¿Cuántos números deseas ingresar?: ");
-                if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
+                for (int i = 0; i < 20; i++)
                 {
-                    Console.WriteLine("🚨 Error: Cantidad inválida.");
-                    return;
-                }
+                    int numero = random.Next(1, 101);
+                    numerosOriginales.Add(numero);
 
-                for (int i = 0; i < n; i++)
-                {
-                    Console.Write($"Introduce el número {i + 1}: ");
-                    if (int.TryParse(Console.ReadLine(), out int numero))
+                    if (numero % 2 == 0)
                     {
-                        numerosOriginales.Add(numero);
-                        if (numero % 2 == 0)
-                        {
-                            numerosPares.Add(numero);
-                        }
-                        else
-                        {
-                            numerosImpares.Add(numero);
-                        }
+                        numerosPares.Add(numero);
                     }
                     else
                     {
-                        Console.WriteLine("🚨 Error: Número inválido. Inténtalo de nuevo.");
-                        i--; // Reintentar la misma iteración
+                        numerosImpares.Add(numero);
                     }
                 }
 
-                Console.WriteLine("✅ Números agregados exitosamente.");
+                Console.WriteLine("✅ Se generaron 20 números aleatorios entre 1 y 100.");
+            }
+
+            public List<int> ObtenerPares()
+            {
+                return numerosPares;
+            }
+
+            public List<int> ObtenerImpares()
+            {
+                return numerosImpares;
             }
 
             public void MostrarListas()
@@ -465,10 +463,11 @@ namespace PracticaU2_Estructuras.Services
                 
                 Console.WriteLine("\n───────────────────────────────────────────────────────");
                 
-                Console.WriteLine($"🔢 NÚMEROS PARES ({numerosPares.Count} números):");
-                if (numerosPares.Count > 0)
+                var pares = ObtenerPares();
+                Console.WriteLine($"🔢 NÚMEROS PARES ({pares.Count} números):");
+                if (pares.Count > 0)
                 {
-                    Console.WriteLine(string.Join(", ", numerosPares));
+                    Console.WriteLine(string.Join(", ", pares));
                 }
                 else
                 {
@@ -477,10 +476,11 @@ namespace PracticaU2_Estructuras.Services
                 
                 Console.WriteLine("\n───────────────────────────────────────────────────────");
                 
-                Console.WriteLine($"🔣 NÚMEROS IMPARES ({numerosImpares.Count} números):");
-                if (numerosImpares.Count > 0)
+                var impares = ObtenerImpares();
+                Console.WriteLine($"🔣 NÚMEROS IMPARES ({impares.Count} números):");
+                if (impares.Count > 0)
                 {
-                    Console.WriteLine(string.Join(", ", numerosImpares));
+                    Console.WriteLine(string.Join(", ", impares));
                 }
                 else
                 {

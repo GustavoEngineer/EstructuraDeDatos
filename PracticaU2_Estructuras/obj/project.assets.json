@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {}
+    "C:\\Users\\jfytr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\Tarea equipo mirian\\estructuradedatos\\practicau2_estructuras\\PracticaU2_Estructuras.csproj",
+      "projectUniqueName": "C:\\Code\\miriam\\EstructuraDeDatos\\PracticaU2_Estructuras\\PracticaU2_Estructuras.csproj",
       "projectName": "PracticaU2_Estructuras",
-      "projectPath": "C:\\code\\Tarea equipo mirian\\estructuradedatos\\practicau2_estructuras\\PracticaU2_Estructuras.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\Tarea equipo mirian\\estructuradedatos\\practicau2_estructuras\\obj\\",
+      "projectPath": "C:\\Code\\miriam\\EstructuraDeDatos\\PracticaU2_Estructuras\\PracticaU2_Estructuras.csproj",
+      "packagesPath": "C:\\Users\\jfytr\\.nuget\\packages\\",
+      "outputPath": "C:\\Code\\miriam\\EstructuraDeDatos\\PracticaU2_Estructuras\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jfytr\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
