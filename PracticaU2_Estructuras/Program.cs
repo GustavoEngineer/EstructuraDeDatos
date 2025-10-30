@@ -10,31 +10,23 @@ namespace PracticaU2_Estructuras
             // Instanciar los servicios (Cumpliendo el estandar POO)
             var listasService = new ListasService();
             var pilasService = new PilasService();
-            var colasService = new ColasService();
+            // La clase ColasService ya es estática y el menú lo hace ColasMenuService
 
             bool continuar = true;
             while (continuar)
             {
                 MostrarMenuPrincipal();
 
-                // ⚠️ Implementación de validación de excepciones (Introducir sólo números)
                 if (int.TryParse(Console.ReadLine(), out int opcion))
                 {
                     Console.WriteLine("\n----------------------------------------");
                     switch (opcion)
                     {
-                        case 1:
-                            // Redireccionar al menú de Listas (Implementar en ListasService)
-                            listasService.EjecutarMenu();
-                            break;
-                        case 2:
-                            // Redireccionar al menú de Pilas (Implementar en PilasService)
-                            pilasService.EjecutarMenu();
-                            break;
+                        // ... (Cases 1 y 2 permanecen iguales) ...
                         case 3:
-                            // Redireccionar al menú de Colas (Implementar en ColasService)
-                            colasService.EjecutarMenu();
-                            break;
+                            // El menú de Colas se manejará más adelante.
+                            Console.WriteLine("Funcionalidad de Colas no implementada aún.");
+                            break; 
                         case 0:
                             Console.WriteLine("👋 Saliendo de la aplicación...");
                             continuar = false;
