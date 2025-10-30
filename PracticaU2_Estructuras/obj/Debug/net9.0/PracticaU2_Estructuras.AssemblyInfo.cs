@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PracticaU2_Estructuras")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ac2d16729394db9a7ab34d8930de415f3cd7b02")]
 [assembly: System.Reflection.AssemblyProductAttribute("PracticaU2_Estructuras")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PracticaU2_Estructuras")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
