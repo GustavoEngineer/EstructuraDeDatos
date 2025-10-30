@@ -1,5 +1,6 @@
 ﻿using System;
 using PracticaU2_Estructuras.Services; // Asumimos esta carpeta para las clases Service
+using Services; // Para acceder a ColasService estático
 
 namespace PracticaU2_Estructuras
 {
@@ -10,7 +11,7 @@ namespace PracticaU2_Estructuras
             // Instanciar los servicios (Cumpliendo el estandar POO)
             var listasService = new ListasService();
             var pilasService = new PilasService();
-            var colasService = new ColasService();
+            // ColasService es estático, no se instancia
 
             bool continuar = true;
             while (continuar)
@@ -33,7 +34,7 @@ namespace PracticaU2_Estructuras
                             break;
                         case 3:
                             // Redireccionar al menú de Colas (Implementar en ColasService)
-                            colasService.EjecutarMenu();
+                            ColasService.EjecutarMenu();
                             break;
                         case 0:
                             Console.WriteLine("👋 Saliendo de la aplicación...");
@@ -69,5 +70,6 @@ namespace PracticaU2_Estructuras
             Console.WriteLine("  0. Salir");
             Console.Write("Tu opción: ");
         }
+
     }
 }

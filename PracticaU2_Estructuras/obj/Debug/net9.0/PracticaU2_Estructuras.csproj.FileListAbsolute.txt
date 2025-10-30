@@ -27,3 +27,17 @@ C:\Code\miriam\EstructuraDeDatos\PracticaU2_Estructuras\obj\Debug\net9.0\refint\
 C:\Code\miriam\EstructuraDeDatos\PracticaU2_Estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.pdb
 C:\Code\miriam\EstructuraDeDatos\PracticaU2_Estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.genruntimeconfig.cache
 C:\Code\miriam\EstructuraDeDatos\PracticaU2_Estructuras\obj\Debug\net9.0\ref\PracticaU2_Estructuras.dll
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\bin\Debug\net9.0\PracticaU2_Estructuras.exe
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\bin\Debug\net9.0\PracticaU2_Estructuras.deps.json
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\bin\Debug\net9.0\PracticaU2_Estructuras.runtimeconfig.json
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\bin\Debug\net9.0\PracticaU2_Estructuras.dll
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\bin\Debug\net9.0\PracticaU2_Estructuras.pdb
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.AssemblyInfoInputs.cache
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.AssemblyInfo.cs
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.csproj.CoreCompileInputs.cache
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.dll
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\refint\PracticaU2_Estructuras.dll
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.pdb
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\PracticaU2_Estructuras.genruntimeconfig.cache
+C:\code\Tarea equipo mirian\estructuradedatos\practicau2_estructuras\obj\Debug\net9.0\ref\PracticaU2_Estructuras.dll

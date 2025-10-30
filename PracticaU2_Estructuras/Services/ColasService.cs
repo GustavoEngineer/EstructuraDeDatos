@@ -63,6 +63,280 @@ namespace Services
         /// <summary>Obtiene el último elemento insertado (sin eliminar). Retorna null si la cola está vacía.</summary>
         public static Cliente? ObtenerFinal() => Svc.ObtenerFinalSeguro();
 
+        /// <summary>
+        /// Ejecuta el menú interactivo para los ejercicios de Colas.
+        /// </summary>
+        public static void EjecutarMenu()
+        {
+            bool continuar = true;
+            while (continuar)
+            {
+                MostrarMenuColas();
+                
+                if (int.TryParse(Console.ReadLine(), out int opcion))
+                {
+                    Console.WriteLine("\n----------------------------------------");
+                    switch (opcion)
+                    {
+                        case 1:
+                            EjercicioVentanillaBanco();
+                            break;
+                        case 2:
+                            EjercicioColaPrioridad();
+                            break;
+                        case 3:
+                            EjercicioColaCircular();
+                            break;
+                        case 0:
+                            Console.WriteLine("Volviendo al Menú Principal...");
+                            continuar = false;
+                            break;
+                        default:
+                            Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                            break;
+                    }
+                    Console.WriteLine("----------------------------------------\n");
+                }
+                else
+                {
+                    Console.WriteLine("\nError: Por favor, introduce solo un número para seleccionar la opción.");
+                }
+
+                if (continuar)
+                {
+                    Console.WriteLine("Presiona cualquier tecla para continuar...");
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        private static void MostrarMenuColas()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Menú Ejercicios de Colas ---");
+            Console.WriteLine("1. Ventanilla del Banco");
+            Console.WriteLine("2. Cola con Prioridad");
+            Console.WriteLine("3. Cola Circular");
+            Console.WriteLine("0. Volver al Menú Principal");
+            Console.Write("Selecciona una opción: ");
+        }
+
+        private static void EjercicioVentanillaBanco()
+        {
+            Console.WriteLine("=== Ejercicio 1: Ventanilla del Banco ===");
+            Console.WriteLine("Simulador de atención en ventanilla bancaria");
+            
+            bool continuar = true;
+            while (continuar)
+            {
+                Console.WriteLine("\n--- Menú Ventanilla del Banco ---");
+                Console.WriteLine("1. Inicializar cola");
+                Console.WriteLine("2. Agregar cliente");
+                Console.WriteLine("3. Atender siguiente cliente");
+                Console.WriteLine("4. Ver estado de la cola");
+                Console.WriteLine("5. Ver primer cliente (sin atender)");
+                Console.WriteLine("6. Ver último cliente (sin atender)");
+                Console.WriteLine("0. Volver al menú de Colas");
+                Console.Write("Selecciona una opción: ");
+                
+                if (int.TryParse(Console.ReadLine(), out int opcion))
+                {
+                    Console.WriteLine("\n----------------------------------------");
+                    switch (opcion)
+                    {
+                        case 1:
+                            InicializarCola();
+                            break;
+                        case 2:
+                            AgregarCliente();
+                            break;
+                        case 3:
+                            AtenderCliente();
+                            break;
+                        case 4:
+                            VerEstadoCola();
+                            break;
+                        case 5:
+                            VerPrimerCliente();
+                            break;
+                        case 6:
+                            VerUltimoCliente();
+                            break;
+                        case 0:
+                            continuar = false;
+                            break;
+                        default:
+                            Console.WriteLine("Opción no válida.");
+                            break;
+                    }
+                    Console.WriteLine("----------------------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("\nError: Introduce un número válido.");
+                }
+            }
+        }
+
+        private static void InicializarCola()
+        {
+            try
+            {
+                Console.Write("Ingresa la capacidad de la cola: ");
+                if (int.TryParse(Console.ReadLine(), out int capacidad) && capacidad > 0)
+                {
+                    Inicializar(capacidad);
+                    Console.WriteLine($"✅ Cola inicializada con capacidad de {capacidad} clientes.");
+                }
+                else
+                {
+                    Console.WriteLine("❌ Capacidad inválida. Debe ser un número mayor a 0.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error al inicializar: {ex.Message}");
+            }
+        }
+
+        private static void AgregarCliente()
+        {
+            try
+            {
+                Console.Write("Nombre del cliente: ");
+                string nombre = Console.ReadLine() ?? "";
+                
+                Console.Write("Tipo de movimiento (Depósito/Retiro/Pago/General): ");
+                string tipo = Console.ReadLine() ?? "General";
+                
+                InsertaCola(nombre, tipo, DateTime.Now);
+                Console.WriteLine($"✅ Cliente '{nombre}' agregado a la cola.");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"❌ {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error: {ex.Message}");
+            }
+        }
+
+        private static void AtenderCliente()
+        {
+            try
+            {
+                var resultado = AtenderVentanilla();
+                Console.WriteLine("✅ Cliente atendido:");
+                Console.WriteLine($"   - Turno: {resultado.Cliente.NumeroTurno}");
+                Console.WriteLine($"   - Nombre: {resultado.Cliente.Nombre}");
+                Console.WriteLine($"   - Movimiento: {resultado.Cliente.TipoMovimiento}");
+                Console.WriteLine($"   - Hora de llegada: {resultado.Cliente.HoraLlegada:HH:mm:ss}");
+                Console.WriteLine($"   - Hora de atención: {resultado.HoraAtencion:HH:mm:ss}");
+                Console.WriteLine($"   - Tiempo de espera: {resultado.TiempoEspera.TotalMinutes:F1} minutos");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"❌ {ex.Message}");
+            }
+        }
+
+        private static void VerEstadoCola()
+        {
+            try
+            {
+                Console.WriteLine("📊 Estado de la cola:");
+                Console.WriteLine($"   - Capacidad: {Capacidad}");
+                Console.WriteLine($"   - Clientes en cola: {Conteo}");
+                Console.WriteLine($"   - Cola vacía: {(ColaVacia() ? "Sí" : "No")}");
+                Console.WriteLine($"   - Cola llena: {(ColaLlena() ? "Sí" : "No")}");
+                
+                if (!ColaVacia())
+                {
+                    Console.WriteLine("\n📋 Clientes en cola:");
+                    var snapshot = ObtenerSnapshot();
+                    foreach (System.Data.DataRow row in snapshot.Rows)
+                    {
+                        Console.WriteLine($"   Turno {row["Turno"]}: {row["Nombre"]} - {row["Movimiento"]} ({row["HoraLlegada"]:HH:mm:ss})");
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"❌ {ex.Message}");
+            }
+        }
+
+        private static void VerPrimerCliente()
+        {
+            try
+            {
+                var cliente = ObtenerFrente();
+                if (cliente != null)
+                {
+                    Console.WriteLine("👤 Primer cliente en la cola:");
+                    Console.WriteLine($"   - Turno: {cliente.NumeroTurno}");
+                    Console.WriteLine($"   - Nombre: {cliente.Nombre}");
+                    Console.WriteLine($"   - Movimiento: {cliente.TipoMovimiento}");
+                    Console.WriteLine($"   - Hora de llegada: {cliente.HoraLlegada:HH:mm:ss}");
+                }
+                else
+                {
+                    Console.WriteLine("❌ No hay clientes en la cola.");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"❌ {ex.Message}");
+            }
+        }
+
+        private static void VerUltimoCliente()
+        {
+            try
+            {
+                var cliente = ObtenerFinal();
+                if (cliente != null)
+                {
+                    Console.WriteLine("👤 Último cliente en la cola:");
+                    Console.WriteLine($"   - Turno: {cliente.NumeroTurno}");
+                    Console.WriteLine($"   - Nombre: {cliente.Nombre}");
+                    Console.WriteLine($"   - Movimiento: {cliente.TipoMovimiento}");
+                    Console.WriteLine($"   - Hora de llegada: {cliente.HoraLlegada:HH:mm:ss}");
+                }
+                else
+                {
+                    Console.WriteLine("❌ No hay clientes en la cola.");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"❌ {ex.Message}");
+            }
+        }
+
+        private static void EjercicioColaPrioridad()
+        {
+            Console.WriteLine("=== Ejercicio 2: Cola con Prioridad ===");
+            Console.WriteLine("Este ejercicio maneja colas con diferentes niveles de prioridad.");
+            Console.WriteLine("Funcionalidades disponibles:");
+            Console.WriteLine("- Clientes VIP tienen prioridad");
+            Console.WriteLine("- Gestión de múltiples colas");
+            Console.WriteLine("- Atención por prioridad");
+            Console.WriteLine("\nPENDIENTE: Implementación específica de cola con prioridad.");
+        }
+
+        private static void EjercicioColaCircular()
+        {
+            Console.WriteLine("=== Ejercicio 3: Cola Circular ===");
+            Console.WriteLine("Este ejercicio implementa una cola circular eficiente.");
+            Console.WriteLine("Funcionalidades disponibles:");
+            Console.WriteLine("- Cola con capacidad fija");
+            Console.WriteLine("- Reutilización de espacio");
+            Console.WriteLine("- Operaciones O(1)");
+            Console.WriteLine("\nLa implementación actual ya incluye cola circular en ColaAcotada<T>.");
+        }
+
         // =========================
         // Implementación interna
         // =========================
