@@ -320,29 +320,36 @@ namespace PracticaU2_Estructuras.Services
         {
             private List<Producto> productosDisponibles;
             private List<Producto> productosRetirados;
-            private Random random;
-            private int contadorProductos;
 
             public ProductoSupermercado()
             {
                 productosDisponibles = new List<Producto>();
                 productosRetirados = new List<Producto>();
-                random = new Random();
-                contadorProductos = 1;
             }
 
             public void AgregarProducto()
             {
-                string nombre = $"producto{contadorProductos}";
-                int cantidad = random.Next(1, 101);
-                decimal precio = (decimal)(random.NextDouble() * 998.99 + 1.00);
-                precio = Math.Round(precio, 2);
+                Console.Write("Introduce el nombre del producto: ");
+                string nombre = Console.ReadLine() ?? string.Empty;
+
+                Console.Write("Introduce la cantidad: ");
+                if (!int.TryParse(Console.ReadLine(), out int cantidad))
+                {
+                    Console.WriteLine("🚨 Error: Cantidad inválida.");
+                    return;
+                }
+
+                Console.Write("Introduce el precio: ");
+                if (!decimal.TryParse(Console.ReadLine(), out decimal precio))
+                {
+                    Console.WriteLine("🚨 Error: Precio inválido.");
+                    return;
+                }
 
                 Producto nuevoProducto = new Producto(nombre, cantidad, precio);
                 productosDisponibles.Add(nuevoProducto);
                 
                 Console.WriteLine($"✅ Producto agregado: {nuevoProducto}");
-                contadorProductos++;
             }
 
             public void RetirarProducto(string nombre)
@@ -403,14 +410,12 @@ namespace PracticaU2_Estructuras.Services
             private List<int> numerosOriginales;
             private List<int> numerosPares;
             private List<int> numerosImpares;
-            private Random random;
 
             public NumerosParesImpares()
             {
                 numerosOriginales = new List<int>();
                 numerosPares = new List<int>();
                 numerosImpares = new List<int>();
-                random = new Random();
             }
 
             public void GenerarNumeros()
@@ -419,22 +424,36 @@ namespace PracticaU2_Estructuras.Services
                 numerosPares.Clear();
                 numerosImpares.Clear();
 
-                for (int i = 0; i < 20; i++)
+                Console.Write("¿Cuántos números deseas ingresar?: ");
+                if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
                 {
-                    int numero = random.Next(1, 101);
-                    numerosOriginales.Add(numero);
+                    Console.WriteLine("🚨 Error: Cantidad inválida.");
+                    return;
+                }
 
-                    if (numero % 2 == 0)
+                for (int i = 0; i < n; i++)
+                {
+                    Console.Write($"Introduce el número {i + 1}: ");
+                    if (int.TryParse(Console.ReadLine(), out int numero))
                     {
-                        numerosPares.Add(numero);
+                        numerosOriginales.Add(numero);
+                        if (numero % 2 == 0)
+                        {
+                            numerosPares.Add(numero);
+                        }
+                        else
+                        {
+                            numerosImpares.Add(numero);
+                        }
                     }
                     else
                     {
-                        numerosImpares.Add(numero);
+                        Console.WriteLine("🚨 Error: Número inválido. Inténtalo de nuevo.");
+                        i--; // Reintentar la misma iteración
                     }
                 }
 
-                Console.WriteLine("✅ Se generaron 20 números aleatorios entre 1 y 100.");
+                Console.WriteLine("✅ Números agregados exitosamente.");
             }
 
             public void MostrarListas()
