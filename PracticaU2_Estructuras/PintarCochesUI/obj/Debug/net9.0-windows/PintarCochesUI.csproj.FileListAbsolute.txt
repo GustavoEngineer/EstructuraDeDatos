@@ -1,0 +1,15 @@
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.AssemblyInfoInputs.cache
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.AssemblyInfo.cs
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.csproj.CoreCompileInputs.cache
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.sourcelink.json
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\bin\Debug\net9.0-windows\PintarCochesUI.exe
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\bin\Debug\net9.0-windows\PintarCochesUI.deps.json
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\bin\Debug\net9.0-windows\PintarCochesUI.runtimeconfig.json
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\bin\Debug\net9.0-windows\PintarCochesUI.dll
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\bin\Debug\net9.0-windows\PintarCochesUI.pdb
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.dll
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\refint\PintarCochesUI.dll
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.pdb
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\PintarCochesUI.genruntimeconfig.cache
+C:\miriam\EstructuraDeDatos\PracticaU2_Estructuras\PintarCochesUI\obj\Debug\net9.0-windows\ref\PintarCochesUI.dll
