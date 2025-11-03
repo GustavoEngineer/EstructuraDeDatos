@@ -26,6 +26,7 @@ namespace PracticaU2_Estructuras.Services
                 Console.WriteLine("1. Ejercicio 1: Ventanilla del Banco (ColasService)");
                 Console.WriteLine("2. Pintar Coches Game");
                 Console.WriteLine("3. Ejercicio 3: Estacionamiento Callejón (EstacionamientoApp)");
+                Console.WriteLine("4. Ejercicio 4: Lavado de Coches");
                 Console.WriteLine("0. Volver al Menú Principal");
                 Console.Write("Selecciona una opción: ");
 
@@ -36,6 +37,7 @@ namespace PracticaU2_Estructuras.Services
                         case 1: EjecutarEjercicio1Colas(); break;
                         case 2: LanzarPintarCochesGame(); break;
                         case 3: LanzarEstacionamientoApp(); break;
+                        case 4: ColasService.Ejercicio4_LavadoCoches(); break;
                         case 0: volverAPrincipal = true; break;
                         default: Console.WriteLine("Opción no válida."); break;
                     }

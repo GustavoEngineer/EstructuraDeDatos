@@ -22,9 +22,13 @@ namespace PracticaU2_Estructuras
                     Console.WriteLine("\n----------------------------------------");
                     switch (opcion)
                     {
-                        // ... (Cases 1 y 2 permanecen iguales) ...
+                        case 1:
+                            new ListasService().EjecutarMenu();
+                            break;
+                        case 2:
+                            new PilasService().EjecutarMenu();
+                            break;
                         case 3:
-                            // Redireccionar al menú de Colas (Implementar en ColasService)
                             ColasService.EjecutarMenu();
                             break; 
 

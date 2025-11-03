@@ -354,7 +354,7 @@ namespace PracticaU2_Estructuras.Services
 
             public void RetirarProducto(string nombre)
             {
-                Producto producto = productosDisponibles.FirstOrDefault(p => 
+                Producto? producto = productosDisponibles.FirstOrDefault(p => 
                     p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
 
                 if (producto != null)
@@ -536,7 +536,7 @@ namespace PracticaU2_Estructuras.Services
 
             public void EliminarProductoPorClave(string clave)
             {
-                ProductoGestion producto = productos.FirstOrDefault(p => 
+                ProductoGestion? producto = productos.FirstOrDefault(p => 
                     p.Clave.Equals(clave, StringComparison.OrdinalIgnoreCase));
 
                 if (producto != null)

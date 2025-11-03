@@ -277,15 +277,51 @@ namespace Services
             Console.WriteLine("\nPENDIENTE: Implementación específica de cola con prioridad.");
         }
 
-        private static void EjercicioColaCircular()
+        private static void Ejercicio3_AtencionClientes()
         {
-            Console.WriteLine("=== Ejercicio 3: Cola Circular ===");
-            Console.WriteLine("Este ejercicio implementa una cola circular eficiente.");
-            Console.WriteLine("Funcionalidades disponibles:");
-            Console.WriteLine("- Cola con capacidad fija");
-            Console.WriteLine("- Reutilización de espacio");
-            Console.WriteLine("- Operaciones O(1)");
-            Console.WriteLine("\nLa implementación actual ya incluye cola circular en ColaAcotada<T>.");
+            Console.WriteLine("--- Ejercicio 3: Simulación de Atención a Clientes ---");
+            Queue<string> colaClientes = new Queue<string>();
+
+            colaClientes.Enqueue("Cliente A");
+            colaClientes.Enqueue("Cliente B");
+            colaClientes.Enqueue("Cliente C");
+
+            Console.WriteLine("Clientes en cola: " + string.Join(", ", colaClientes));
+
+            while (colaClientes.Count > 0)
+            {
+                string clienteAtendido = colaClientes.Dequeue();
+                Console.WriteLine($"Atendiendo a: {clienteAtendido}");
+                Console.WriteLine($"Clientes restantes: {string.Join(", ", colaClientes)}");
+                System.Threading.Thread.Sleep(1000); // Simular tiempo de atención
+            }
+            Console.WriteLine("Todos los clientes han sido atendidos.");
+        }
+
+        public static void Ejercicio4_LavadoCoches()
+        {
+            Console.WriteLine("--- Ejercicio 4: Simulación de Lavado de Coches ---");
+            Queue<string> colaCoches = new Queue<string>();
+
+            Console.WriteLine("Coches llegando al lavado...");
+            colaCoches.Enqueue("Coche 1 (Rojo)");
+            colaCoches.Enqueue("Coche 2 (Azul)");
+            colaCoches.Enqueue("Coche 3 (Verde)");
+            colaCoches.Enqueue("Coche 4 (Negro)");
+
+            Console.WriteLine("Coches en espera: " + string.Join(", ", colaCoches));
+            Console.WriteLine("----------------------------------------");
+
+            while (colaCoches.Count > 0)
+            {
+                string cocheLavado = colaCoches.Dequeue();
+                Console.WriteLine($"Lavando: {cocheLavado}");
+                System.Threading.Thread.Sleep(1500); // Simular tiempo de lavado
+                Console.WriteLine($"¡{cocheLavado} ha sido lavado y se marcha!");
+                Console.WriteLine($"Coches restantes en espera: {(colaCoches.Any() ? string.Join(", ", colaCoches) : "Ninguno")}");
+                Console.WriteLine("----------------------------------------");
+            }
+            Console.WriteLine("Todos los coches han sido lavados. ¡Día terminado!");
         }
 
         // =========================
